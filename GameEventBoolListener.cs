@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class GameEventBoolListener : MonoBehaviour
 {
     public GameEventBool Event;
+    public bool inverseParameter;
     public BoolEvent Response;
 
     private void OnEnable()
@@ -20,7 +21,10 @@ public class GameEventBoolListener : MonoBehaviour
 
     public void OnEventRaised(bool value)
     {
-        Response.Invoke(value);
+        if(inverseParameter)
+            Response.Invoke(!value);
+        else
+            Response.Invoke(value);
     }
 }
 
