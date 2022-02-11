@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Plugins.GameEvents;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameEvent", menuName = "Scriptable Objects/Game Event")]
-public class GameEvent : ScriptableObject
+[CreateAssetMenu(fileName = "SimpleGameEvent", menuName = "Scriptable Objects/Events/Simple Game Event")]
+public class SimpleGameEvent : ScriptableObject
 {
-    private List<GameEventListener> listeners = new List<GameEventListener>();
+    private List<SimpleGameEventListener> listeners = new List<SimpleGameEventListener>();
 
     public void Raise()
     {
@@ -15,7 +16,7 @@ public class GameEvent : ScriptableObject
         }
     }
 
-    public void RegisterListener(GameEventListener listener)
+    public void RegisterListener(SimpleGameEventListener listener)
     {
         if (!listeners.Contains(listener))
         {
@@ -23,7 +24,7 @@ public class GameEvent : ScriptableObject
         }
     }
 
-    public void UnregisterListener(GameEventListener listener)
+    public void UnregisterListener(SimpleGameEventListener listener)
     {
         if (listeners.Contains(listener))
         {

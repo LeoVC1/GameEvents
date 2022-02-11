@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Plugins.GameEvents;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventBoolListener : MonoBehaviour
+public class BoolGameEventListener : MonoBehaviour
 {
-    public GameEventBool Event;
+    public BoolGameEvent Event;
     public bool inverseParameter;
-    public BoolEvent Response;
+    public UnityEvent<bool> Response;
 
     private void OnEnable()
     {
@@ -27,6 +28,3 @@ public class GameEventBoolListener : MonoBehaviour
             Response.Invoke(value);
     }
 }
-
-[System.Serializable]
-public class BoolEvent : UnityEvent<bool> { }
